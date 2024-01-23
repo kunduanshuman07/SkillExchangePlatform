@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Box, Button, Grid, TextField, InputAdornment, IconButton } from '@mui/material'
+import { Box, Button, Grid, TextField, InputAdornment, IconButton, MenuItem } from '@mui/material'
 import styled from 'styled-components'
 import backgroundImage from "../assets/RegisterBackground.jpg"
 import AppBarComponent from '../components/AppBarComponent'
@@ -8,12 +8,71 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 const RegisterPage = () => {
     const [infoState, setInfoState] = useState('profile');
     const [showPassword, setShowPassword] = useState(false);
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+    const [age, setAge] = useState('');
+    const [type, setType] = useState('');
+    const [degree, setDegree] = useState('');
+    const [exp, setExp] = useState('');
+    const [skillone, setSkillOne] = useState('');
+    const [skilltwo, setSkilltwo] = useState('');
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
     };
+    const yourProfileArray = [
+        { label: 'First Name', state: firstName, setState: setFirstName },
+        { label: 'Last Name', state: lastName, setState: setLastName },
+        { label: 'Email', state: email, setState: setEmail },
+        { label: 'Phone', state: phone, setState: setPhone },
+        {
+            label: 'Password',
+            state: password,
+            setState: setPassword,
+        },
+        {
+            label: 'Confirm Password',
+            state: confirmPassword,
+            setState: setConfirmPassword,
+        },
+    ];
+
+    const personalInformationArray = [
+        { label: 'Age', state: age, setState: setAge },
+        { label: 'Student or Professional', state: type, setState: setType },
+        { label: 'Highest Qualification', state: degree, setState: setDegree },
+        { label: 'Primary Skill 1', state: skillone, setState: setSkillOne },
+        { label: 'Primary Skill 2', state: skilltwo, setState: setSkilltwo },
+    ];
+    const userType = [
+        {
+            label: "Student",
+            value: "Student",
+        },
+        {
+            label: "Professional",
+            value: "Professional"
+        }
+    ];
+    const handleProfileNext = () => {
+        const profileData = {
+            firstName, lastName, email, phone, password
+        }
+        console.log(profileData);
+        setInfoState('pinfo')
+    }
+    const handlePersonalInfoNext = () => {
+        const personalInfoData = {
+            age, skillone, skilltwo, degree, exp, type
+        }
+        console.log(personalInfoData);
+    }
     return (
         <Root>
-                <AppBarComponent />
+            <AppBarComponent />
             <Box className='container'>
                 <img src={backgroundImage} alt='background' className='bg-img' />
                 <Box className='content'>
@@ -24,58 +83,84 @@ const RegisterPage = () => {
                     <Box className='content-segment'>
                         {infoState === 'profile' ? <Box className='your-profile'>
                             <Grid container spacing={3} className='grid-container'>
-                                <Grid item xs={6}>
-                                    <TextField placeholder='First Name' size='small' label='First Name' required fullWidth />
-                                </Grid>
-                                <Grid item xs={6}>
-                                    <TextField placeholder='Last Name' size='small' label='Last Name' required fullWidth />
-                                </Grid>
-                                <Grid item xs={6}>
-                                    <TextField placeholder='Email' size='small' label='Email' required fullWidth />
-                                </Grid>
-                                <Grid item xs={6}>
-                                    <TextField placeholder='Phone' size='small' label='Phone' required fullWidth />
-                                </Grid>
-                                <Grid item xs={6}>
-                                    <TextField placeholder='Password' size='small' label='Password' required fullWidth
-                                        type={showPassword?"text": "password"}
-                                        InputProps={{
-                                            endAdornment: (
-                                                <InputAdornment position="end">
-                                                    <IconButton onClick={togglePasswordVisibility} size='small'>
-                                                        {showPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
-                                                    </IconButton>
-                                                </InputAdornment>
-                                            )
-                                        }} />
-                                </Grid>
-                                <Grid item xs={6}>
-                                    <TextField placeholder='Confirm Password' size='small' label='Confirm Password' required fullWidth />
-                                </Grid>
+                                {yourProfileArray.map((item, index) => (
+                                    <Grid item xs={6} key={index}>
+                                        <TextField
+                                            placeholder={item.label}
+                                            sx={{
+                                                ".css-1d3z3hw-MuiOutlinedInput-notchedOutline": {
+                                                    borderRadius: "20px"
+                                                }
+                                            }}
+                                            size='small'
+                                            label={item.label}
+                                            required
+                                            fullWidth
+                                            type={item.label === 'Password' ? showPassword ? "text" : "password" : "text"}
+                                            InputProps={{
+                                                endAdornment: (
+                                                    item.label === 'Password' && <InputAdornment position="end">
+                                                        <IconButton onClick={togglePasswordVisibility} size='small'>
+                                                            {showPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
+                                                        </IconButton>
+                                                    </InputAdornment>
+                                                )
+                                            }}
+                                            value={item.state}
+                                            onChange={(e) => item.setState(e.target.value)}
+                                        />
+                                    </Grid>
+                                ))}
                             </Grid>
-                            <Button className='next-btn'>Next</Button>
+                            <Button className='next-btn' onClick={handleProfileNext}>Next</Button>
                         </Box> : <Box className='personal-info'>
                             <Grid container spacing={3} className='grid-container'>
-                                <Grid item xs={6}>
-                                    <TextField placeholder='Age' size='small' label='Age' required fullWidth />
-                                </Grid>
-                                <Grid item xs={6}>
-                                    <TextField placeholder='Gender' size='small' label='Gender' required fullWidth />
-                                </Grid>
-                                <Grid item xs={6}>
-                                    <TextField placeholder='Education' size='small' label='Education' required fullWidth />
-                                </Grid>
-                                <Grid item xs={6}>
-                                    <TextField placeholder='Employment' size='small' label='Employment' required fullWidth />
-                                </Grid>
-                                <Grid item xs={6}>
-                                    <TextField placeholder='Password' size='small' label='Password' required fullWidth />
-                                </Grid>
-                                <Grid item xs={6}>
-                                    <TextField placeholder='Confirm Password' size='small' label='Confirm Password' required fullWidth />
-                                </Grid>
+                                {personalInformationArray.map((item, index) => (
+                                    <Grid item xs={6} key={index}>
+                                        <TextField
+                                            placeholder={item.label}
+                                            size='small'
+                                            label={item.label}
+                                            required
+                                            fullWidth
+                                            select={item.label === 'Student or Professional'}
+                                            sx={{
+                                                ".css-1d3z3hw-MuiOutlinedInput-notchedOutline": {
+                                                    borderRadius: "20px",
+                                                }
+                                            }}
+                                            value={item.state}
+                                            onChange={(e) => item.setState(e.target.value)}
+                                        >
+                                            {item.label === 'Student or Professional' &&
+                                                userType.map((option) => (
+                                                    <MenuItem key={option.value} value={option.value}>{option.label}</MenuItem>
+                                                ))
+                                            }
+                                        </TextField>
+                                    </Grid>
+                                ))}
+                                {type === 'Professional' && (
+                                    <Grid item xs={6}>
+                                        <TextField
+                                            placeholder='Years of Experience'
+                                            size='small'
+                                            label='Years of Experience'
+                                            required
+                                            fullWidth
+                                            type='text'
+                                            sx={{
+                                                '.css-1d3z3hw-MuiOutlinedInput-notchedOutline': {
+                                                    borderRadius: '20px',
+                                                },
+                                            }}
+                                            value={exp}
+                                            onChange={(e) => setExp(e.target.value)}
+                                        />
+                                    </Grid>
+                                )}
                             </Grid>
-                            <Button className='next-btn'>Next</Button>
+                            <Button className='next-btn' onClick={handlePersonalInfoNext}>Next</Button>
                         </Box>}
 
                     </Box>
