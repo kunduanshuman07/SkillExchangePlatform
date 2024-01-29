@@ -3,16 +3,6 @@ import { Box, Button, TextField, Typography, MenuItem, Dialog, DialogContent } f
 import styled from 'styled-components'
 import { useNavigate } from 'react-router-dom';
 
-const userType = [
-   {
-      label: "Learning",
-      value: "Learning",
-   },
-   {
-      label: "Teaching",
-      value: "Teaching"
-   }
-];
 const skillOptions = [
    {
       label: "React.js",
@@ -28,7 +18,6 @@ const skillOptions = [
    }
 ];
 const PrefDialog = ({setPrefDialog}) => {
-   const [purpose, setPurpose] = useState('')
    const [skill, setSkill] = useState('');
    const navigate = useNavigate();
    const handleExplore = () => {
@@ -42,33 +31,13 @@ const PrefDialog = ({setPrefDialog}) => {
                <Box className='container'>
                   <Box className='content'>
                      <Box className='header'>
-                        <Typography className='header-text'>Set your Preferences</Typography>
-                     </Box>
-                     <Box className='purpose-field'>
-                        <TextField
-                           placeholder='Purpose'
-                           label='Purpose'
-                           size='small'
-                           value={purpose}
-                           sx={{
-                              ".css-1d3z3hw-MuiOutlinedInput-notchedOutline": {
-                                 borderRadius: "10px",
-                                 border: "2px solid #d0d7de"
-                              }
-                           }}
-                           fullWidth
-                           select
-                           onChange={(e) => setPurpose(e.target.value)}
-                        >
-                           {userType.map((option) => (
-                              <MenuItem key={option.value} value={option.value}>{option.label}</MenuItem>
-                           ))}
-                        </TextField>
+                        <Typography className='header-text'>Add Skills</Typography>
                      </Box>
                      <Box className='skill-field'>
                         <TextField
-                           placeholder='Add skills'
-                           label='Add skills'
+                           variant='standard'
+                           placeholder='Add skill'
+                           label='Add skill'
                            size='small'
                            value={skill}
                            sx={{
@@ -78,16 +47,11 @@ const PrefDialog = ({setPrefDialog}) => {
                               }
                            }}
                            fullWidth
-                           select
                            onChange={(e) => setSkill(e.target.value)}
-                        >
-                           {skillOptions.map((option) => (
-                              <MenuItem key={option.value} value={option.value}>{option.label}</MenuItem>
-                           ))}
-                        </TextField>
+                        />
                      </Box>
                      <Box className='next'>
-                        <Button className='next-button' variant='contained' color='inherit' onClick={handleExplore}>Start Exploring</Button>
+                        <Button className='next-button' variant='contained' color='inherit' onClick={handleExplore}>Start Learning</Button>
                      </Box>
                   </Box>
                </Box>
@@ -108,9 +72,6 @@ const Root = styled.div`
    padding: 10px;
    border-radius: 20px;
   }
-  .header{
-   // width: 600px;
-  }
   .header-text{
    font-size: 25px;
    font-weight: bold;
@@ -123,11 +84,11 @@ const Root = styled.div`
    width: 300px;
   }
   .skill-field{
-   margin: 30px auto 0px auto;
+   margin: 20px auto 0px auto;
    width: 300px;
   }
   .next{
-   margin: 30px auto 10px auto;
+   margin: 40px auto 10px auto;
   }
   .next-button{
    font-weight: bold;

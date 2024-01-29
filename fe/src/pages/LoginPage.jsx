@@ -15,7 +15,7 @@ const LoginPage = () => {
     };
     return (
         <Root>
-            <AppBarComponent />
+            <AppBarComponent callFrom='Login'/>
             <Box className='container'>
                 <img src={backgroundImage} alt='background' className='bg-img' />
                 <Box className='content'>

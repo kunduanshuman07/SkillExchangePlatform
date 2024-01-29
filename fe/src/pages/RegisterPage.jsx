@@ -72,7 +72,7 @@ const RegisterPage = () => {
     }
     return (
         <Root>
-            <AppBarComponent />
+            <AppBarComponent callFrom='Register'/>
             <Box className='container'>
                 <img src={backgroundImage} alt='background' className='bg-img' />
                 <Box className='content'>

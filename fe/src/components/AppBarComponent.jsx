@@ -4,40 +4,64 @@ import AppBar from '@mui/material/AppBar';
 import CssBaseline from '@mui/material/CssBaseline';
 import Toolbar from '@mui/material/Toolbar';
 import Container from '@mui/material/Container';
-import { Button, IconButton, Tooltip, Typography } from '@mui/material';
+import { Button, IconButton, Tooltip} from '@mui/material';
 import styled from "styled-components";
 import ConnectWithoutContactIcon from '@mui/icons-material/ConnectWithoutContact';
 import InfoIcon from '@mui/icons-material/Info';
 import Logo from "../assets/Logo.png";
-export const AppBarComponent = ({ comp }) => {
+import { useNavigate } from 'react-router-dom';
+export const AppBarComponent = ({ callFrom }) => {
+    const navigate = useNavigate();
+    const handleTeach = () => {
+        navigate('/teach')
+    }
+    const handleColab = () => {
+        navigate('/colab')
+    }
     return (
         <Root>
             <Box sx={{ display: 'flex' }}>
                 <CssBaseline />
-                <AppBar position="fixed" sx={{ backgroundColor: "#f6f8fa", color: "black", border: "1px solid #d0d7de", boxShadow: "none" }}>
-                    <Container maxWidth="xl">
+                <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1, backgroundColor: "#f6f8fa", color: "black", boxShadow: "none", height: "50px" }}>
+                    <Container maxWidth="xl" style={{marginTop: "-6px"}}>
                         <Toolbar disableGutters>
-                            <Box style={{ display: "flex", flexDirection: "row" }}>
-                                <img src={Logo} alt="logo" width={30} height={30} className='logo' />
-                                <Box className='logo-header'>
-                                    <Typography className='logo-text'>Swap Skill</Typography>
-                                    <Typography className='logo-footer'>Trade your skills</Typography>
-                                </Box>
-                            </Box>
-                            <Box sx={{ ml: "auto" }}>
-                                <Tooltip title='About Us'>
-                                    <IconButton className='about' >
-                                        <InfoIcon />
-                                    </IconButton>
-                                </Tooltip>
-                            </Box>
-                            <Box>
-                                <Tooltip title='Contact Us'>
-                                    <IconButton className='contact'>
-                                        <ConnectWithoutContactIcon/>
-                                    </IconButton>
-                                </Tooltip>
-                            </Box>
+                            {['Register', 'Login'].includes(callFrom) ?
+                                <>
+                                    <Box sx={{ ml: "auto" }}>
+                                        <Tooltip title='About Us'>
+                                            <IconButton className='about' >
+                                                <InfoIcon />
+                                            </IconButton>
+                                        </Tooltip>
+                                    </Box>
+                                    <Box>
+                                        <Tooltip title='Contact Us'>
+                                            <IconButton className='contact'>
+                                                <ConnectWithoutContactIcon />
+                                            </IconButton>
+                                        </Tooltip>
+                                    </Box>
+                                </> : <Box className='tab-box'>
+                                    <Box>
+                                        <img src={Logo} alt="logo" width={20} height={20} className='logo' />
+                                    </Box>
+                                    <Box>
+                                        <Button className='tabs'>Learn</Button>
+                                    </Box>
+                                    <Box>
+                                        <Button className='tabs' onClick={handleTeach}>Teach</Button>
+                                    </Box>
+                                    <Box>
+                                        <Button className='tabs' onClick={handleColab}>Colab</Button>
+                                    </Box>
+                                    <Box>
+                                        <Button className='tabs'>Explore</Button>
+                                    </Box>
+                                    <Box>
+                                        <Button className='tabs'>My Sessions</Button>
+                                    </Box>
+                                </Box>}
+
                         </Toolbar>
                     </Container>
                 </AppBar>
@@ -51,8 +75,9 @@ const Root = styled.div`
         cursor: pointer
     }
     .logo{
-        margin-top: 5px;
-        margin-left: 10px;
+        margin-top: 15px;
+        margin-left: 20px;
+        margin-right: 20px;
     }
     .logo-header{
         display: flex;
@@ -80,6 +105,16 @@ const Root = styled.div`
     .contact{
         text-transform: none;
         color: black;
+    }
+    .tab-box{
+        margin: auto;
+        display: flex;
+    }
+    .tabs{
+        color: black;
+        text-transform: none;
+        margin: 10px;
+        font-size: 12px;
     }
 `
 
