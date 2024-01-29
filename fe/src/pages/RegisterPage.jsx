@@ -89,7 +89,10 @@ const RegisterPage = () => {
                                             placeholder={item.label}
                                             sx={{
                                                 ".css-1d3z3hw-MuiOutlinedInput-notchedOutline": {
-                                                    borderRadius: "20px"
+                                                    borderRadius: "10px",
+                                                    border: "2px solid #d0d7de"
+
+
                                                 }
                                             }}
                                             size='small'
@@ -126,7 +129,9 @@ const RegisterPage = () => {
                                             select={item.label === 'Student or Professional'}
                                             sx={{
                                                 ".css-1d3z3hw-MuiOutlinedInput-notchedOutline": {
-                                                    borderRadius: "20px",
+                                                    borderRadius: "10px",
+                                                    border: "2px solid #d0d7de"
+
                                                 }
                                             }}
                                             value={item.state}
@@ -151,7 +156,9 @@ const RegisterPage = () => {
                                             type='text'
                                             sx={{
                                                 '.css-1d3z3hw-MuiOutlinedInput-notchedOutline': {
-                                                    borderRadius: '20px',
+                                                    borderRadius: '10px',
+                                                    border: "2px solid #d0d7de"
+
                                                 },
                                             }}
                                             value={exp}
@@ -204,6 +211,7 @@ const Root = styled.div`
  .profile-btn{
     width: 290px;
     background-color: black;
+    box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
     color: white;
     height: 50px;
     border-radius: 10px;
@@ -214,6 +222,7 @@ const Root = styled.div`
  .pinfo-btn{
     width: 290px;
     background-color: black;
+    box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
     color: white;
     height: 50px;
     border-radius: 10px;

@@ -27,7 +27,13 @@ const LoginPage = () => {
                         <Box className='your-profile'>
                             <Grid container spacing={3} className='grid-container'>
                                 <Grid item xs={12}>
-                                    <TextField placeholder='Email' size='small' label='Email' required fullWidth />
+                                    <TextField placeholder='Email' size='small' label='Email' required fullWidth sx={{
+                                        '.css-1d3z3hw-MuiOutlinedInput-notchedOutline': {
+                                            borderRadius: '10px',
+                                            border: "2px solid #d0d7de"
+
+                                        },
+                                    }} />
                                 </Grid>
                                 <Grid item xs={12}>
                                     <TextField placeholder='Password' size='small' label='Password' required fullWidth
@@ -40,11 +46,19 @@ const LoginPage = () => {
                                                     </IconButton>
                                                 </InputAdornment>
                                             )
-                                        }} />
+                                        }}
+                                        sx={{
+                                            '.css-1d3z3hw-MuiOutlinedInput-notchedOutline': {
+                                                borderRadius: '10px',
+                                                border: "2px solid #d0d7de"
+
+                                            },
+                                        }}
+                                    />
                                 </Grid>
                             </Grid>
                             <Button className='next-btn'>Login</Button>
-                            <Typography className='new-user'>New here? <span className='register' onClick={()=>navigate('/register')}>Register</span></Typography>
+                            <Typography className='new-user'>New here? <span className='register' onClick={() => navigate('/register')}>Register</span></Typography>
                         </Box>
                     </Box>
                 </Box>

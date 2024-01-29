@@ -4,7 +4,7 @@ import AppBar from '@mui/material/AppBar';
 import CssBaseline from '@mui/material/CssBaseline';
 import Toolbar from '@mui/material/Toolbar';
 import Container from '@mui/material/Container';
-import { Button, Tooltip, Typography } from '@mui/material';
+import { Button, IconButton, Tooltip, Typography } from '@mui/material';
 import styled from "styled-components";
 import ConnectWithoutContactIcon from '@mui/icons-material/ConnectWithoutContact';
 import InfoIcon from '@mui/icons-material/Info';
@@ -14,7 +14,7 @@ export const AppBarComponent = ({ comp }) => {
         <Root>
             <Box sx={{ display: 'flex' }}>
                 <CssBaseline />
-                <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1, backgroundColor: "white", color: "#086D67" }}>
+                <AppBar position="fixed" sx={{ backgroundColor: "#f6f8fa", color: "black", border: "1px solid #d0d7de", boxShadow: "none" }}>
                     <Container maxWidth="xl">
                         <Toolbar disableGutters>
                             <Box style={{ display: "flex", flexDirection: "row" }}>
@@ -25,10 +25,18 @@ export const AppBarComponent = ({ comp }) => {
                                 </Box>
                             </Box>
                             <Box sx={{ ml: "auto" }}>
-                                <Button className='about' startIcon={<InfoIcon />}>About Us</Button>
+                                <Tooltip title='About Us'>
+                                    <IconButton className='about' >
+                                        <InfoIcon />
+                                    </IconButton>
+                                </Tooltip>
                             </Box>
                             <Box>
-                                <Button className='contact' startIcon={<ConnectWithoutContactIcon />}>Contact Us</Button>
+                                <Tooltip title='Contact Us'>
+                                    <IconButton className='contact'>
+                                        <ConnectWithoutContactIcon/>
+                                    </IconButton>
+                                </Tooltip>
                             </Box>
                         </Toolbar>
                     </Container>
@@ -66,27 +74,12 @@ const Root = styled.div`
         margin-left: 10px;
     }
     .about{
-        background-color: black;
-        color: white;
         text-transform: none;
-        border-radius: 20px;
-        padding: 5px 15px;
-        border: 2px solid black;
-        &:hover{
-            color: black;
-        }
+        color: black;
     }
     .contact{
-        background-color: black;
-        color: white;
         text-transform: none;
-        border-radius: 20px;
-        margin-left: 20px;
-        padding: 5px 15px;
-        border: 2px solid black;
-        &:hover{
-            color: black;
-        }
+        color: black;
     }
 `
 
