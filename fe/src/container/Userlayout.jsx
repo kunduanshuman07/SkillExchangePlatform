@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom"
 import AppBarComponent from '../components/AppBarComponent'
 import LearnPage from '../pages/LearnPage';
 import TeachPage from '../pages/TeachPage';
+import TutorPage from "../pages/TutorPage";
 const Userlayout = () => {
   return (
     <Root>
@@ -11,9 +12,9 @@ const Userlayout = () => {
       <main style={{ width: "100%" }}>
         <div className='content'>
           <Routes>
-            <Route path='/' element={<LearnPage />}/>
             <Route path='/learn' element={<LearnPage />}/>
             <Route path='/teach' element={<TeachPage />}/>
+            <Route path='/learn/:tutorId' element={<TutorPage />}/>
           </Routes>
         </div>
       </main>

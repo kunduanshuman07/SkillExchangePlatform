@@ -1,4 +1,4 @@
-import { Avatar, Box, Button, LinearProgress, Rating, Typography } from '@mui/material';
+import { Avatar, Box, Button, Rating, Typography } from '@mui/material';
 import React, { useState } from 'react'
 import PrefDialog from '../components/PrefDialog';
 import styled from 'styled-components';
@@ -6,8 +6,14 @@ import EditNoteIcon from '@mui/icons-material/EditNote';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import MilitaryTechIcon from '@mui/icons-material/MilitaryTech';
 import ProgressImage from "../assets/ProgressImage.jpg";
+import { useNavigate } from 'react-router-dom';
 const LearnPage = () => {
+  const navigate = useNavigate();
   const [prefDialog, setPrefDialog] = useState(true);
+  const handleConnectTutor = () => {
+    const tutorId = 'xyz'
+    navigate(`/learn/${tutorId}`);
+  }
   return (
     <Root>
       {prefDialog && <PrefDialog setPrefDialog={setPrefDialog} />}
@@ -34,7 +40,7 @@ const LearnPage = () => {
             </Box>
             <Typography className='tutor-emp'>Current Employment: <span className='tutor-emp-text'>Microsoft</span></Typography>
           </Box>
-          <Button className='connect-btn'>Connect</Button>
+          <Button className='connect-btn' onClick={handleConnectTutor}>Connect</Button>
         </Box>
         <Box className='learning-tile'>
           <Box className='tutor-header'>
@@ -101,6 +107,7 @@ const Root = styled.div`
     flex-direction: column;
     cursor: pointer;
     margin-top: 10px;
+    background-color: #f6f8fa;
   }
   .avatar{
     background-color: black;
@@ -280,7 +287,7 @@ const Root = styled.div`
     color: #020c59;
   }
   .progress-box{
-    margin-top: 20px;
+    margin-top: 30px;
     padding: 10px 20px;
     border: 1px solid #d0d7de;
     border-radius: 20px;
@@ -310,7 +317,7 @@ const Root = styled.div`
   .badge-text{
     font-size: 18px;
     background-color: white;
-    color: black;
+    color: #6c3178;
     border-radius: 20px;
     font-weight: bold;
     text-align: center;

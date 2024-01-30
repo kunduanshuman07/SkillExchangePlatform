@@ -1,27 +1,10 @@
 import React, { useState } from 'react'
-import { Box, Button, TextField, Typography, MenuItem, Dialog, DialogContent } from '@mui/material'
+import { Box, Button, TextField, Typography, Dialog, DialogContent } from '@mui/material'
 import styled from 'styled-components'
-import { useNavigate } from 'react-router-dom';
 
-const skillOptions = [
-   {
-      label: "React.js",
-      value: "React.js",
-   },
-   {
-      label: "Node.js",
-      value: "Node.js"
-   },
-   {
-      label: "SQL",
-      value: "SQL"
-   }
-];
 const PrefDialog = ({setPrefDialog}) => {
    const [skill, setSkill] = useState('');
-   const navigate = useNavigate();
    const handleExplore = () => {
-      navigate('/')
       setPrefDialog(false);
    }
    return (
