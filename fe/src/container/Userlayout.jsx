@@ -12,6 +12,7 @@ const Userlayout = () => {
         <div className='content'>
           <Routes>
             <Route path='/' element={<LearnPage />}/>
+            <Route path='/learn' element={<LearnPage />}/>
             <Route path='/teach' element={<TeachPage />}/>
           </Routes>
         </div>

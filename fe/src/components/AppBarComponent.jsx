@@ -4,14 +4,18 @@ import AppBar from '@mui/material/AppBar';
 import CssBaseline from '@mui/material/CssBaseline';
 import Toolbar from '@mui/material/Toolbar';
 import Container from '@mui/material/Container';
-import { Button, IconButton, Tooltip} from '@mui/material';
+import { Avatar, Button, IconButton, Tooltip } from '@mui/material';
 import styled from "styled-components";
 import ConnectWithoutContactIcon from '@mui/icons-material/ConnectWithoutContact';
 import InfoIcon from '@mui/icons-material/Info';
 import Logo from "../assets/Logo.png";
 import { useNavigate } from 'react-router-dom';
+import SettingsIcon from '@mui/icons-material/Settings';
 export const AppBarComponent = ({ callFrom }) => {
     const navigate = useNavigate();
+    const handleLearn = () => {
+        navigate('/learn')
+    }
     const handleTeach = () => {
         navigate('/teach')
     }
@@ -23,7 +27,7 @@ export const AppBarComponent = ({ callFrom }) => {
             <Box sx={{ display: 'flex' }}>
                 <CssBaseline />
                 <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1, backgroundColor: "#f6f8fa", color: "black", boxShadow: "none", height: "50px" }}>
-                    <Container maxWidth="xl" style={{marginTop: "-6px"}}>
+                    <Container maxWidth="xl" style={{ marginTop: "-6px" }}>
                         <Toolbar disableGutters>
                             {['Register', 'Login'].includes(callFrom) ?
                                 <>
@@ -46,7 +50,7 @@ export const AppBarComponent = ({ callFrom }) => {
                                         <img src={Logo} alt="logo" width={20} height={20} className='logo' />
                                     </Box>
                                     <Box>
-                                        <Button className='tabs'>Learn</Button>
+                                        <Button className='tabs' onClick={handleLearn}>Learn</Button>
                                     </Box>
                                     <Box>
                                         <Button className='tabs' onClick={handleTeach}>Teach</Button>
@@ -60,8 +64,20 @@ export const AppBarComponent = ({ callFrom }) => {
                                     <Box>
                                         <Button className='tabs'>My Sessions</Button>
                                     </Box>
-                                </Box>}
-
+                                    <Box>
+                                        <Tooltip title='My Profile'>
+                                            <IconButton className='avatar'>
+                                                <Avatar style={{ width: "25px", height: "25px", backgroundColor: "black" }} />
+                                            </IconButton>
+                                        </Tooltip>
+                                    </Box>
+                                    <Box>
+                                        <IconButton className='tabs'>
+                                            <SettingsIcon style={{ fontSize: "16px" }} />
+                                        </IconButton>
+                                    </Box>
+                                </Box>
+                            }
                         </Toolbar>
                     </Container>
                 </AppBar>
@@ -115,6 +131,9 @@ const Root = styled.div`
         text-transform: none;
         margin: 10px;
         font-size: 12px;
+    }
+    .avatar{
+        margin: 5px 0px 0px 50px;
     }
 `
 
