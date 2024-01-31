@@ -26,7 +26,7 @@ export const AppBarComponent = ({ callFrom }) => {
         <Root>
             <Box sx={{ display: 'flex' }}>
                 <CssBaseline />
-                <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1, backgroundColor: "#f6f8fa", color: "black", boxShadow: "none", height: "50px" }}>
+                <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1, backgroundColor: "#FDF8EE", color: "#4D2C5E", boxShadow: "none", height: "50px" }}>
                     <Container maxWidth="xl" style={{ marginTop: "-6px" }}>
                         <Toolbar disableGutters>
                             {['Register', 'Login'].includes(callFrom) ?
@@ -67,7 +67,7 @@ export const AppBarComponent = ({ callFrom }) => {
                                     <Box>
                                         <Tooltip title='My Profile'>
                                             <IconButton className='avatar'>
-                                                <Avatar style={{ width: "25px", height: "25px", backgroundColor: "black" }} />
+                                                <Avatar style={{ width: "25px", height: "25px", backgroundColor: "#4D2C5E" }} />
                                             </IconButton>
                                         </Tooltip>
                                     </Box>
@@ -127,7 +127,8 @@ const Root = styled.div`
         display: flex;
     }
     .tabs{
-        color: black;
+        color: #4D2C5E;
+        font-weight: bold;
         text-transform: none;
         margin: 10px;
         font-size: 12px;
