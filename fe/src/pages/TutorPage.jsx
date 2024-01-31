@@ -7,13 +7,15 @@ import SkillTutor from '../components/SkillTutor';
 import ReviewsTutor from '../components/ReviewsTutor';
 import TutorTabs from '../components/TutorTabs';
 import TutorIntro from '../components/TutorIntro';
+import { useParams } from 'react-router-dom';
 const TutorPage = () => {
+  const {tutorId} = useParams();
   const [tabState, setTabState] = useState('PersonalInfo');
   return (
     <Root>
       <Box className='container'>
         <Box className='left-container'>
-          <TutorIntro />
+          <TutorIntro tutorId={tutorId}/>
         </Box>
         <Box className='right-container'>
           <TutorTabs tabState={tabState} setTabState={setTabState} />

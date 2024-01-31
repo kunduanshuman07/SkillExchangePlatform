@@ -3,7 +3,12 @@ import { Typography, Avatar, Rating, Button, Box } from "@mui/material";
 import AvatarImg from "../assets/Teacher-one.jpg";
 import HubIcon from '@mui/icons-material/Hub';
 import styled from 'styled-components';
-const TutorIntro = () => {
+import { useNavigate } from 'react-router-dom';
+const TutorIntro = ({tutorId}) => {
+  const navigate = useNavigate();
+  const handleConnect = () => {
+    navigate(`/learn/${tutorId}/connect`)
+  }
   return (
     <Root>
       <Box className='container'>
@@ -11,7 +16,7 @@ const TutorIntro = () => {
         <Typography className='tutor-name'>Matthew E. McNatt</Typography>
         <Typography className='tutor-prof'>Professor @George Brown College</Typography>
         <Rating value={4} size='small' readOnly className='rating' />
-        <Button className='connect' startIcon={<HubIcon />} >Connect</Button>
+        <Button className='connect' startIcon={<HubIcon />} onClick={handleConnect}>Connect</Button>
       </Box>
     </Root>
   )

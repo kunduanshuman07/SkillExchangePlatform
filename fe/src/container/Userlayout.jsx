@@ -5,6 +5,7 @@ import AppBarComponent from '../components/AppBarComponent'
 import LearnPage from '../pages/LearnPage';
 import TeachPage from '../pages/TeachPage';
 import TutorPage from "../pages/TutorPage";
+import ConnectPage from '../pages/ConnectPage';
 const Userlayout = () => {
   return (
     <Root>
@@ -15,6 +16,7 @@ const Userlayout = () => {
             <Route path='/learn' element={<LearnPage />}/>
             <Route path='/teach' element={<TeachPage />}/>
             <Route path='/learn/:tutorId' element={<TutorPage />}/>
+            <Route path='/learn/:tutorId/connect' element={<ConnectPage />}/>
           </Routes>
         </div>
       </main>

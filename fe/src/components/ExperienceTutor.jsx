@@ -49,7 +49,7 @@ const Root = styled.div`
     padding: 10px 20px;
     border-radius: 20px;
     width: 600px;
-    margin: 10px auto;
+    margin: 20px auto;
   }
   
 `
