@@ -1,139 +1,24 @@
-import { Box, Button, Card, Grid, Rating, Typography, CardContent, IconButton } from '@mui/material';
+import { Box, Button, Grid} from '@mui/material';
 import React, { useState } from 'react'
 import PrefDialog from '../components/PrefDialog';
 import styled from 'styled-components';
-import { useNavigate } from 'react-router-dom';
-import TeacherImg from "../assets/Teacher-one.jpg";
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import AccessTimeIcon from '@mui/icons-material/AccessTime';
-import SubscriptionsIcon from '@mui/icons-material/Subscriptions';
-import HubIcon from '@mui/icons-material/Hub';
+import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
+import FilterAltIcon from '@mui/icons-material/FilterAlt';
+import SwapVertIcon from '@mui/icons-material/SwapVert';
+import TutorComponent from '../components/TutorComponent';
 const LearnPage = () => {
-  const navigate = useNavigate();
   const [prefDialog, setPrefDialog] = useState(true);
-  const handleConnectTutor = () => {
-    const tutorId = 'xyz'
-    navigate(`/learn/${tutorId}`);
-  }
   return (
     <Root>
       {prefDialog && <PrefDialog setPrefDialog={setPrefDialog} />}
+      <Box className='top-container'>
+        <Button className='edit-skill' startIcon={<DriveFileRenameOutlineIcon/>}>Edit Skill Preferrence</Button>
+        <Button className='filter' startIcon={<FilterAltIcon/>}>Filters</Button>
+        <Button className='sort' startIcon={<SwapVertIcon/>}>Sort</Button>
+      </Box>
       <Grid container className='grid-container' spacing={5}>
         <Grid item xs={4}>
-          <Card className='grid-cards'>
-            <CardContent className>
-              <Box className='grid-items'>
-                <img src={TeacherImg} alt='tutor' className='tutor-img' />
-                <Box className='header'>
-                    <Typography className='tutor-name'>Matthew E. McNatt</Typography>
-                    <Typography className='tutor-prof'>Professor @George Brown College</Typography>
-                    <Box className='rating-header'>
-                      <Rating value={4} readOnly size='small' className='rating' />
-                      <Typography className='rating-stud'>4000+ Learners</Typography>
-                    </Box>
-                    <Button className='free-paid-btn'>Free</Button>
-                  </Box>
-                <Box className='footer-one'>
-                  <Typography className='course-name'>React.js</Typography>
-                  <IconButton className='icon-btn'>
-                    <LinkedInIcon className='linkedin'/>
-                  </IconButton>
-                </Box>
-                <Box className='footer-two'>
-                  <Button className='timer' startIcon={<AccessTimeIcon/>}>22h 30min</Button>
-                  <Button className='subs' startIcon={<SubscriptionsIcon/>}>150</Button>
-                </Box>
-                <Button className='connect' startIcon={<HubIcon/>}>Connect</Button>
-              </Box>
-            </CardContent>
-          </Card>
-        </Grid>
-        <Grid item xs={4}>
-          <Card className='grid-cards'>
-            <CardContent className>
-              <Box className='grid-items'>
-                <img src={TeacherImg} alt='tutor' className='tutor-img' />
-                <Box className='header'>
-                    <Typography className='tutor-name'>Matthew E. McNatt</Typography>
-                    <Typography className='tutor-prof'>Professor @George Brown College</Typography>
-                    <Box className='rating-header'>
-                      <Rating value={4} readOnly size='small' className='rating' />
-                      <Typography className='rating-stud'>4000+ Learners</Typography>
-                    </Box>
-                    <Button className='free-paid-btn'>Free</Button>
-                  </Box>
-                <Box className='footer-one'>
-                  <Typography className='course-name'>React.js</Typography>
-                  <IconButton className='icon-btn'>
-                    <LinkedInIcon className='linkedin'/>
-                  </IconButton>
-                </Box>
-                <Box className='footer-two'>
-                  <Button className='timer' startIcon={<AccessTimeIcon/>}>22h 30min</Button>
-                  <Button className='subs' startIcon={<SubscriptionsIcon/>}>150</Button>
-                </Box>
-                <Button className='connect' startIcon={<HubIcon/>}>Connect</Button>
-              </Box>
-            </CardContent>
-          </Card>
-        </Grid>
-        <Grid item xs={4}>
-          <Card className='grid-cards'>
-            <CardContent className>
-              <Box className='grid-items'>
-                <img src={TeacherImg} alt='tutor' className='tutor-img' />
-                <Box className='header'>
-                    <Typography className='tutor-name'>Matthew E. McNatt</Typography>
-                    <Typography className='tutor-prof'>Professor @George Brown College</Typography>
-                    <Box className='rating-header'>
-                      <Rating value={4} readOnly size='small' className='rating' />
-                      <Typography className='rating-stud'>4000+ Learners</Typography>
-                    </Box>
-                    <Button className='free-paid-btn'>Free</Button>
-                  </Box>
-                <Box className='footer-one'>
-                  <Typography className='course-name'>React.js</Typography>
-                  <IconButton className='icon-btn'>
-                    <LinkedInIcon className='linkedin'/>
-                  </IconButton>
-                </Box>
-                <Box className='footer-two'>
-                  <Button className='timer' startIcon={<AccessTimeIcon/>}>22h 30min</Button>
-                  <Button className='subs' startIcon={<SubscriptionsIcon/>}>150</Button>
-                </Box>
-                <Button className='connect' startIcon={<HubIcon/>}>Connect</Button>
-              </Box>
-            </CardContent>
-          </Card>
-        </Grid>
-        <Grid item xs={4}>
-          <Card className='grid-cards'>
-            <CardContent className>
-              <Box className='grid-items'>
-                <img src={TeacherImg} alt='tutor' className='tutor-img' />
-                <Box className='header'>
-                    <Typography className='tutor-name'>Matthew E. McNatt</Typography>
-                    <Typography className='tutor-prof'>Professor @George Brown College</Typography>
-                    <Box className='rating-header'>
-                      <Rating value={4} readOnly size='small' className='rating' />
-                      <Typography className='rating-stud'>4000+ Learners</Typography>
-                    </Box>
-                    <Button className='free-paid-btn'>Free</Button>
-                  </Box>
-                <Box className='footer-one'>
-                  <Typography className='course-name'>React.js</Typography>
-                  <IconButton className='icon-btn'>
-                    <LinkedInIcon className='linkedin'/>
-                  </IconButton>
-                </Box>
-                <Box className='footer-two'>
-                  <Button className='timer' startIcon={<AccessTimeIcon/>}>22h 30min</Button>
-                  <Button className='subs' startIcon={<SubscriptionsIcon/>}>150</Button>
-                </Box>
-                <Button className='connect' startIcon={<HubIcon/>}>Connect</Button>
-              </Box>
-            </CardContent>
-          </Card>
+          <TutorComponent />
         </Grid>
       </Grid>
     </Root>
@@ -142,113 +27,32 @@ const LearnPage = () => {
 
 const Root = styled.div`
   display: flex;
-  .grid-container{
-    
-  }
-  .grid-cards{
-    padding: 0px;
-    border-radius: 15px;
-  }
-  .grid-items{
+  flex-direction: column;
+  .top-container{
     display: flex;
-    flex-direction: column;
-    cursor: pointer;
+    margin-left: 0px;
+    border-bottom: 2px solid #d0d7de;
+
   }
-  .tutor-img{
-    width: 300px;
-    height: 170px;
-    border-radius: 15px;
-    margin: auto;
-  }
-  .header{
-    display: flex;
-    flex-direction: column;
-    margin-top: 10px;
-    margin-left: 15px;
-    margin-right: auto;
-    border-bottom: 2px dashed #d0d7de;
-    padding: 0px 0px 10px 0px;
-    width: 90%;
-  }
-  .tutor-name{
-    font-size: 15px;
+  .edit-skill{
+    text-transform: none;
     font-weight: bold;
     color: #4D2C5E;
-    margin-top: 10px;
   }
-  .tutor-prof{
-    font-size: 12px;
-    color: #868686;
-    font-weight: bold;
-  }
-  .rating-header{
-    display: flex;
-    margin-top: 10px;
-  }
-  .rating{
-    margin-left: -4px;
-  }
-  .rating-stud{
-    color: #868686;
-    font-size: 10px;
-    font-weight: bold;
-    margin: 3px 10px;
-  }
-  .free-paid-btn{
-    color:  #5d05a6;
+  .filter{
     text-transform: none;
     font-weight: bold;
-    margin-right: auto;
-    width: 50px;
-    font-size: 15px;
-    padding: 0px;
-    margin-top: 5px;
-    margin-left: -16px;
-  }
-  .footer-one{
-    margin-top: 10px;
-    margin-left: 13px;
-    display: flex;
-  }
-  .course-name{
-    color: #FF7426;
-    font-weight: bold;
-    font-size: 16px;
-  }
-  .icon-btn{
+    color: #4D2C5E;
     margin-left: auto;
-    margin-top: -8px;
-    margin-right: 5px;
   }
-  .linkedin{
-    color: #0565a6;
-  }
-  .footer-two{
-    display: flex;
-  }
-  .timer{
+  .sort{
     text-transform: none;
     font-weight: bold;
-    color: #ACACAC;
-    margin-left: 6px;
-  }
-  .subs{
-    text-transform: none;
-    font-weight: bold;
-    color: #ACACAC;
+    color: #4D2C5E;
     margin-left: 20px;
   }
-  .connect{
-    background-color: #FF7426;
-    color: white;
-    font-weight: bold;
-    text-transform: none;
-    width: 130px;
-    border-radius: 20px;
-    margin: 20px auto 0px auto;
-    &:hover{
-      background-color: #8c3a0d;
-    }
+  .grid-container{
+    padding-top: 15px;
   }
 `
 
