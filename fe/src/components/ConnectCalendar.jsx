@@ -45,7 +45,7 @@ const ConnectCalendar = () => {
 const Root = styled.div`
 .calendar-container{
   display: flex;
-  margin-left: 100px;
+  margin-left: 180px;
 }
 .event-text{
   color: white;

@@ -10,9 +10,9 @@ const DrawerItem = ({ drawerTabState, setDrawerTabState, icon, text }) => {
                 onClick={() => setDrawerTabState(text)}
             >
                 <ListItemIcon>
-                    <IconButton className='icon-btn' style={{ color: drawerTabState === text && "#0072EF" }}>{icon}</IconButton>
+                    <IconButton className='icon-btn' style={{ color: drawerTabState === text && "#FF7426" }}>{icon}</IconButton>
                 </ListItemIcon>
-                <Typography className='text' style={{ color: drawerTabState === text && "#0072EF" }}>{text}</Typography>
+                <Typography className='text' style={{ color: drawerTabState === text && "#FF7426" }}>{text}</Typography>
             </ListItem>
         </Root>
     )
@@ -24,11 +24,11 @@ const Root = styled.div`
         // flex-direction: column;
     }
     .icon-btn{
-        color: #636363;
+        color: white;
         margin: auto;
     }
     .text{
-        color: #636363;
+        color: white;
         font-weight: bold;
         font-size: 15px;
         margin-left: 10px;
