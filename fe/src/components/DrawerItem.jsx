@@ -21,7 +21,7 @@ const DrawerItem = ({ drawerTabState, setDrawerTabState, icon, text }) => {
 const Root = styled.div`
     .list-item{
         display: flex;
-        flex-direction: column;
+        // flex-direction: column;
     }
     .icon-btn{
         color: #636363;
@@ -30,7 +30,8 @@ const Root = styled.div`
     .text{
         color: #636363;
         font-weight: bold;
-        font-size: 13px;
+        font-size: 15px;
+        margin-left: 10px;
     }
 `
 

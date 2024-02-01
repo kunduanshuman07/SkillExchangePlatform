@@ -10,7 +10,7 @@ import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import DuoIcon from '@mui/icons-material/Duo';
 import AddToDriveIcon from '@mui/icons-material/AddToDrive';
 import DrawerItem from './DrawerItem';
-const drawerWidth = 100;
+const drawerWidth = 200;
 const ConnectDrawer = ({drawerTabState, setDrawerTabState}) => {
     return (
         <Root>
@@ -23,7 +23,7 @@ const ConnectDrawer = ({drawerTabState, setDrawerTabState}) => {
                 }}
             >
                 <Toolbar />
-                <Box sx={{ cursor: "pointer" }}>
+                <Box sx={{ cursor: "pointer", marginTop: "20px" }}>
                     <List>
                         <DrawerItem setDrawerTabState={setDrawerTabState} icon={<NotificationsActiveIcon />} text="Activity" drawerTabState={drawerTabState}/>
                         <DrawerItem setDrawerTabState={setDrawerTabState} icon={<ChatIcon />} text="Chat" drawerTabState={drawerTabState}/>
