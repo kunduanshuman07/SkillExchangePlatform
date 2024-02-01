@@ -73,7 +73,7 @@ const Root = styled.div`
   flex-direction: column;
   margin-left: 80px;
   cursor: pointer;
-  margin-top: -70px;
+  margin-top: -80px;
 }
 .chat-avatar{
   margin: 7px 0px 0px 0px;
@@ -89,7 +89,6 @@ const Root = styled.div`
   margin-left: 10px;
   display: flex;
   flex-direction: column;
-  // margin-top: -10px;
 }
 .tutor-msg{
   margin: auto 10px;
@@ -110,7 +109,6 @@ const Root = styled.div`
   margin-right: 10px;
   display: flex;
   flex-direction: column;
-  // margin-top: -10px;
 }
 .stud-chat{
   display: flex;
@@ -128,6 +126,7 @@ const Root = styled.div`
   flex-direction: column;
   overflow-y: auto;
   margin-top: 70px;
+  width: 110%;
 }
 .footer-container{
   position: fixed;

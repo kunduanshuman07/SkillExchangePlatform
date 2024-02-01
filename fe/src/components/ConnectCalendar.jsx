@@ -31,8 +31,8 @@ const ConnectCalendar = () => {
                 <Typography className='event-time'>4:30 p.m - 5:30 p.m</Typography>
               </Box>
               <Box className='event'>
-                <Typography className='event-text'>Javascript Basics</Typography>
-                <Typography className='event-time'>4:30 p.m - 5:30 p.m</Typography>
+                <Typography className='event-text'>Javascript Frontline</Typography>
+                <Typography className='event-time'>5:30 p.m - 6:30 p.m</Typography>
               </Box>
             </Box>
           </Box>
