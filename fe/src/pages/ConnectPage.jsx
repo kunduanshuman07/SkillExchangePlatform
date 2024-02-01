@@ -7,6 +7,7 @@ import ConnectActivity from "../components/ConnectActivity";
 import ConnectCall from "../components/ConnectCall";
 import ConnectCalendar from "../components/ConnectCalendar";
 import ConnectFiles from "../components/ConnectFiles";
+import ConnectRating from '../components/ConnectRating';
 const ConnectPage = () => {
   const [drawerTabState, setDrawerTabState] = useState('Chat')
   return (
@@ -19,15 +20,13 @@ const ConnectPage = () => {
           {drawerTabState === 'Call' && <ConnectCall />}
           {drawerTabState === 'Calendar' && <ConnectCalendar />}
           {drawerTabState === 'Files' && <ConnectFiles />}
+          {drawerTabState === 'Rate' && <ConnectRating />}
         </Box>
       </Box>
     </Root>
   )
 }
 const Root = styled.div`
-  .content{
-    padding: 0px;
-  }
 `
 
 export default ConnectPage
