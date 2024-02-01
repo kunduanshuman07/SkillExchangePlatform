@@ -5,10 +5,15 @@ import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import Person3Icon from '@mui/icons-material/Person3';
 import HelpIcon from '@mui/icons-material/Help';
 import SendIcon from '@mui/icons-material/Send';
+import { useNavigate } from 'react-router-dom';
 const ConnectChat = () => {
+  const navigate = useNavigate();
+  const handleViewProfile = () => {
+    navigate('/learn/xyz');
+  }
   return (
     <Root>
-      <Box className='container'>
+      <Box className='connectchat-container'>
         <Box className='header'>
           <Avatar alt='Anshuman Kundu' src='' className='header-avatar'>MN</Avatar>
           <Box className='header-desc'>
@@ -16,7 +21,7 @@ const ConnectChat = () => {
             <Button startIcon={<FiberManualRecordIcon style={{ fontSize: "10px" }} />} className='avail-btn'>Available</Button>
           </Box>
           <Button className='course-desc' endIcon={<HelpIcon />}>React.js Course</Button>
-          <Button startIcon={<Person3Icon style={{}} />} className='profile-btn'>View Profile</Button>
+          <Button startIcon={<Person3Icon style={{}} />} className='profile-btn' onClick={handleViewProfile}>View Profile</Button>
         </Box>
         <Box className='chat-container'>
           <Box className='tutor-chat'>
@@ -63,18 +68,19 @@ const ConnectChat = () => {
 }
 
 const Root = styled.div`
-.container{
+.connectchat-container{
   displaY: flex;
   flex-direction: column;
-  margin-left: 150px;
+  margin-left: 80px;
   cursor: pointer;
+  margin-top: -70px;
 }
 .chat-avatar{
   margin: 7px 0px 0px 0px;
 }
 .stud-msg{
   margin: auto 10px;
-  background-color: #d0d7de;
+  background-color: #cdebf7;
   padding: 2px 10px;
   font-size: 14px;
   border-radius: 10px;
