@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const SkillTutor = () => {
   return (
     <Root>
-      <Box className='skiils'>
+      <Box className='skills'>
         <Typography className='primary-skill-header'>Primary Skills & Frameworks</Typography>
         <Box className='primary-skills'>
           <Button className='skill'>React.js</Button>
