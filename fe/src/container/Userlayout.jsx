@@ -6,6 +6,7 @@ import LearnPage from '../pages/LearnPage';
 import TeachPage from '../pages/TeachPage';
 import TutorPage from "../pages/TutorPage";
 import ConnectPage from '../pages/ConnectPage';
+import ColabPage from '../pages/ColabPage';
 const Userlayout = () => {
   return (
     <Root>
@@ -15,6 +16,7 @@ const Userlayout = () => {
           <Routes>
             <Route path='/learn' element={<LearnPage />}/>
             <Route path='/teach' element={<TeachPage />}/>
+            <Route path='/colab' element={<ColabPage />}/>
             <Route path='/learn/:tutorId' element={<TutorPage />}/>
             <Route path='/learn/:tutorId/connect' element={<ConnectPage />}/>
           </Routes>
