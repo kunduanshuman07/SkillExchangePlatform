@@ -5,8 +5,9 @@ const CodeEditor = () => {
   return (
     <Editor
       height="400px"
-      language="javascript"
-      theme="vs-dark"
+      width="80%"
+      language="cpp"
+      theme="vs-light"
       value={code}
       options={{
         inlineSuggest: true,
