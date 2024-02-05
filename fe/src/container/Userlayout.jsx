@@ -7,6 +7,7 @@ import TeachPage from '../pages/TeachPage';
 import TutorPage from "../pages/TutorPage";
 import ConnectPage from '../pages/ConnectPage';
 import ColabPage from '../pages/ColabPage';
+import ColabEditor from '../components/ColabEditor';
 const Userlayout = () => {
   return (
     <Root>
@@ -15,10 +16,11 @@ const Userlayout = () => {
         <div className='content'>
           <Routes>
             <Route path='/learn' element={<LearnPage />}/>
-            <Route path='/teach' element={<TeachPage />}/>
-            <Route path='/colab' element={<ColabPage />}/>
             <Route path='/learn/:tutorId' element={<TutorPage />}/>
             <Route path='/learn/:tutorId/connect' element={<ConnectPage />}/>
+            <Route path='/teach' element={<TeachPage />}/>
+            <Route path='/colab' element={<ColabPage />}/>
+            <Route path='/colab/:colabId' element={<ColabEditor />}/>
           </Routes>
         </div>
       </main>

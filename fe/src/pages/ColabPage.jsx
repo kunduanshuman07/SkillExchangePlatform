@@ -5,7 +5,13 @@ import FlipCameraAndroidIcon from '@mui/icons-material/FlipCameraAndroid';
 import JoinFullIcon from '@mui/icons-material/JoinFull';
 import InfoIcon from '@mui/icons-material/Info';
 import EmergencyShareIcon from '@mui/icons-material/EmergencyShare';
+import { useNavigate } from 'react-router-dom';
 const ColabPage = () => {
+  const navigate = useNavigate();
+  const handleJoin = () =>{
+    const colabId = "xyz123"
+    navigate(`/colab/${colabId}`)
+  }
   return (
     <Root>
       <Box className='container'>
@@ -17,7 +23,7 @@ const ColabPage = () => {
           <Box className='right'>
             <Typography className='colab-id'>Your Colab Id:</Typography>
             <Button className='id' startIcon={<FlipCameraAndroidIcon/>}>#xyz123</Button>
-            <Button className='join' startIcon={<JoinFullIcon/>}>Join</Button>
+            <Button className='join' startIcon={<JoinFullIcon/>} onClick={handleJoin}>Join</Button>
             <Button className='share' startIcon={<InfoIcon/>} endIcon={<EmergencyShareIcon/>} variant='outlined'>You can share this code for code colab</Button>
           </Box>
         </Box>
