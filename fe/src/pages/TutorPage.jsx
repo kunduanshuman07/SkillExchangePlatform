@@ -8,9 +8,10 @@ import ReviewsTutor from '../components/ReviewsTutor';
 import TutorTabs from '../components/TutorTabs';
 import TutorIntro from '../components/TutorIntro';
 import { useParams } from 'react-router-dom';
+import CourseDescription from '../components/CourseDescription';
 const TutorPage = () => {
   const {tutorId} = useParams();
-  const [tabState, setTabState] = useState('PersonalInfo');
+  const [tabState, setTabState] = useState('CourseDescription');
   return (
     <Root>
       <Box className='container'>
@@ -19,6 +20,9 @@ const TutorPage = () => {
         </Box>
         <Box className='right-container'>
           <TutorTabs tabState={tabState} setTabState={setTabState} />
+          {tabState === 'CourseDescription' &&
+            <CourseDescription />
+          }
           {tabState === 'PersonalInfo' &&
             <PersonalInfoTutor />
           }

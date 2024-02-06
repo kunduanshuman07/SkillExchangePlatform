@@ -53,6 +53,9 @@ export const AppBarComponent = ({ callFrom }) => {
                                         <Button className='tabs' onClick={handleLearn}>Learn</Button>
                                     </Box>
                                     <Box>
+                                        <Button className='tabs'>Active Sessions</Button>
+                                    </Box>
+                                    <Box>
                                         <Button className='tabs' onClick={handleTeach}>Teach</Button>
                                     </Box>
                                     <Box>
@@ -60,9 +63,6 @@ export const AppBarComponent = ({ callFrom }) => {
                                     </Box>
                                     <Box>
                                         <Button className='tabs'>Explore</Button>
-                                    </Box>
-                                    <Box>
-                                        <Button className='tabs'>My Sessions</Button>
                                     </Box>
                                     <Box>
                                         <Tooltip title='My Profile'>

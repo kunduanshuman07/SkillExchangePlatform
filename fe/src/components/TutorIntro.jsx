@@ -16,6 +16,7 @@ const TutorIntro = ({tutorId}) => {
         <Typography className='tutor-name'>Matthew E. McNatt</Typography>
         <Typography className='tutor-prof'>Professor @George Brown College</Typography>
         <Rating value={4} size='small' readOnly className='rating' />
+        <Typography className='course-name'>React.js</Typography>
         <Button className='connect' startIcon={<HubIcon />} onClick={handleConnect}>Connect</Button>
       </Box>
     </Root>
@@ -38,6 +39,12 @@ const Root = styled.div`
   font-weight: bold;
   text-align:center;
   margin-top: 10px;
+}
+.course-name{
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  color: #53068f;
 }
 .tutor-prof{
   font-size: 14px;
