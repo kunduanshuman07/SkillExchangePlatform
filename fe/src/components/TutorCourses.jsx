@@ -1,5 +1,5 @@
-import { Box, Button, Card, Rating, Typography, CardContent, Grid } from '@mui/material';
-import React from 'react'
+import { Box, Button, Card, Rating, Typography, CardContent, Grid} from '@mui/material';
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import SwapVertIcon from '@mui/icons-material/SwapVert';
@@ -8,55 +8,158 @@ import AccessTimeIcon from '@mui/icons-material/AccessTime'
 import SubscriptionsIcon from '@mui/icons-material/Subscriptions';
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
+import ReviewsIcon from '@mui/icons-material/Reviews';
+import AddCourseDialog from './AddCourseDialog';
 const TutorCourses = () => {
-    return (
-        <Root>
-            <Box className='course-container'>
-                <Box className='top-container'>
-                    <Button className='edit-skill' startIcon={<AddIcon />}>Add New Course</Button>
-                    <Button className='filter' startIcon={<FilterAltIcon />}>Filter</Button>
-                    <Button className='sort' startIcon={<SwapVertIcon />}>Sort</Button>
+  const [addCourseModal, setAddCourseModal] = useState(false);
+  const handleClose = () => {
+    setAddCourseModal(false);
+  }
+  return (
+    <Root>
+      <Box className='course-container'>
+        <Box className='top-container'>
+          <Button className='edit-skill' startIcon={<AddIcon />} onClick={()=>setAddCourseModal(true)}>Add New Course</Button>
+          <Button className='filter' startIcon={<FilterAltIcon />}>Filter</Button>
+          <Button className='sort' startIcon={<SwapVertIcon />}>Sort</Button>
+        </Box>
+        <Grid container spacing={2} className='grid-cont'>
+          <Grid item xs={12}>
+            <Card className='grid-cards'>
+              <CardContent className='card-cont'>
+                <Box className='grid-items'>
+                  <Box className='header'>
+                    <Box className='rating-header'>
+                      <Rating value={4} readOnly size='small' className='rating' />
+                    </Box>
+                    <Button className='free-paid-btn'>Free</Button>
+                  </Box>
+                  <Box className='footer-one'>
+                    <Typography className='course-name'>React.js</Typography>
+                  </Box>
+                  <Box className='status'>
+                    <Button className='status-btn' variant='outlined'>Status: Test Approval Stage</Button>
+                    <Typography className='rating-stud'>Upload Date : 06.10.2024</Typography>
+                  </Box>
                 </Box>
-                <Grid container spacing={2}>
-                    <Grid item xs={4}>
-                        <Card className='grid-cards'>
-                            <CardContent>
-                                <Box className='grid-items'>
-                                    <Box className='header'>
-                                        <Box className='rating-header'>
-                                            <Rating value={4} readOnly size='small' className='rating' />
-                                            <Typography className='rating-stud'>4000+ Learners</Typography>
-                                        </Box>
-                                        <Button className='free-paid-btn'>Free</Button>
-                                    </Box>
-                                    <Box className='footer-one'>
-                                        <Typography className='course-name'>React.js</Typography>
-                                    </Box>
-                                    <Box className='footer-two'>
-                                        <Button className='timer' startIcon={<AccessTimeIcon />}>22h 30min</Button>
-                                        <Button className='subs' startIcon={<SubscriptionsIcon />}>150 Learners</Button>
-                                    </Box>
-                                    <Box className='status'>
-                                        <Button className='status-btn' variant='outlined'>Status: Test Approval Stage</Button>
-                                    </Box>
-                                    <Box className='actions'>
-                                        <Button className='edit' startIcon={<EditIcon/>}>Edit</Button>
-                                        <Button className='delete' startIcon={<DeleteIcon />}>Delete</Button>
-                                    </Box>
-                                </Box>
-                            </CardContent>
-                        </Card>
-                    </Grid>
-
-                </Grid>
-            </Box>
-        </Root>
-    )
+                <Box className='content-desc'>
+                  <Typography className='content-header'>Key topics covered</Typography>
+                  <Typography className="desc-con-text">○ Setting up a React development environment</Typography>
+                  <Typography className="desc-con-text">○ Understanding React components and their lifecycle</Typography>
+                  <Typography className="desc-con-text">○ Managing state and handling events in React applications</Typography>
+                  <Typography className="desc-con-text">○ Routing and navigation with React Router</Typography>
+                  <Typography className="desc-con-text">○ Working with forms and handling user input</Typography>
+                  <Typography className="desc-con-text">○ Fetching data from APIs and integrating it into your React applications</Typography>
+                  <Typography className="desc-con-text">○ State management using Redux for larger-scale applications</Typography>
+                  <Typography className="desc-con-text">○ Testing React components for reliability and maintainability</Typography>
+                  <Typography className="desc-con-text">○ Deploying React applications to production environments</Typography>
+                  <Typography className="desc-con-text">○ Deploying React applications to production environments</Typography>
+                </Box>
+                <Box className='desc-header'>
+                  <Button className='desc-btns' startIcon={<AccessTimeIcon />} variant='outlined'>Time Duration: 23h 5mins</Button>
+                  <Button className='desc-btns' startIcon={<SubscriptionsIcon />} variant='outlined'>Learners joined: 4553</Button>
+                  <Box className='actions'>
+                    <Button className='edit' startIcon={<EditIcon />}>Edit</Button>
+                    <Button className='delete' startIcon={<DeleteIcon />}>Delete</Button>
+                  </Box>
+                  <Button className='reviews' startIcon={<ReviewsIcon />}>Click to view reviews</Button>
+                </Box>
+              </CardContent>
+            </Card>
+          </Grid>
+          <Grid item xs={12}>
+            <Card className='grid-cards'>
+              <CardContent className='card-cont'>
+                <Box className='grid-items'>
+                  <Box className='header'>
+                    <Box className='rating-header'>
+                      <Rating value={4} readOnly size='small' className='rating' />
+                    </Box>
+                    <Button className='free-paid-btn'>Free</Button>
+                  </Box>
+                  <Box className='footer-one'>
+                    <Typography className='course-name'>React.js</Typography>
+                  </Box>
+                  <Box className='status'>
+                    <Button className='status-btn' variant='outlined'>Status: Test Approval Stage</Button>
+                    <Typography className='rating-stud'>Upload Date : 06.10.2024</Typography>
+                  </Box>
+                </Box>
+                <Box className='content-desc'>
+                  <Typography className='content-header'>Key topics covered</Typography>
+                  <Typography className="desc-con-text">○ Setting up a React development environment</Typography>
+                  <Typography className="desc-con-text">○ Understanding React components and their lifecycle</Typography>
+                  <Typography className="desc-con-text">○ Managing state and handling events in React applications</Typography>
+                  <Typography className="desc-con-text">○ Routing and navigation with React Router</Typography>
+                  <Typography className="desc-con-text">○ Working with forms and handling user input</Typography>
+                  <Typography className="desc-con-text">○ Fetching data from APIs and integrating it into your React applications</Typography>
+                  <Typography className="desc-con-text">○ State management using Redux for larger-scale applications</Typography>
+                  <Typography className="desc-con-text">○ Testing React components for reliability and maintainability</Typography>
+                  <Typography className="desc-con-text">○ Deploying React applications to production environments</Typography>
+                  <Typography className="desc-con-text">○ Deploying React applications to production environments</Typography>
+                </Box>
+                <Box className='desc-header'>
+                  <Button className='desc-btns' startIcon={<AccessTimeIcon />} variant='outlined'>Time Duration: 23h 5mins</Button>
+                  <Button className='desc-btns' startIcon={<SubscriptionsIcon />} variant='outlined'>Learners joined: 4553</Button>
+                  <Box className='actions'>
+                    <Button className='edit' startIcon={<EditIcon />}>Edit</Button>
+                    <Button className='delete' startIcon={<DeleteIcon />}>Delete</Button>
+                  </Box>
+                  <Button className='reviews' startIcon={<ReviewsIcon />}>Click to view reviews</Button>
+                </Box>
+              </CardContent>
+            </Card>
+          </Grid>
+        </Grid>
+      </Box>
+      {addCourseModal && <AddCourseDialog onCloseModal={handleClose}/>}
+    </Root>
+  )
 }
 
 const Root = styled.div`
+.reviews{
+  text-transform: none;
+  font-weight: bold;
+  font-size: 12px;
+  margin-top: 10px;
+  color: #8c3a0d;
+}
+.desc-header{
+  margin: auto auto;
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
+.desc-btns{
+  text-transform: none;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 5px auto;
+}
+.content-desc{
+  margin: 10px 30px;
+  background-color: #3D3F54;
+  padding: 10px;
+  border-radius: 20px;
+  width: 50%;
+}
+.content-header{
+  text-align: center;
+  color: white;
+  margin-bottom: 5px;
+}
+.desc-con-text{
+  font-size: 10px;
+  font-weight: bold;
+  color: white;
+}
+.card-cont{
+  display: flex;
+}
 .status{
     display: flex;
+    flex-direction: column;
 }
 .status-btn{
     text-transform: none;
@@ -66,20 +169,22 @@ const Root = styled.div`
     border: 1px solid black;
 }
     .course-container{
-        position: fixed;
-        top: 9%;
-        left: 17%;
+        // position: fixed;
+        margin-left: 160px;
+        margin-top: -20px;
         padding: 20px;
-        width: 80%;
+        width: 90%;
+        cursor: pointer;
     }
     .grid-cards{
         margin-top: 10px;
     }
     .top-container{
         display: flex;
-        margin-left: 0px;
-        border-bottom: 2px solid #d0d7de;
         width: 100%;
+        
+        background-color: white;
+        border-radius: 20px;
       }
       .edit-skill{
         text-transform: none;
@@ -109,6 +214,8 @@ const Root = styled.div`
         display: flex;
         flex-direction: column;
         cursor: pointer;
+        width: 30%;
+        margin: 30px auto;
       }
       .tutor-img{
         width: 300px;
@@ -146,9 +253,9 @@ const Root = styled.div`
       }
       .rating-stud{
         color: #868686;
-        font-size: 10px;
+        font-size: 14px;
         font-weight: bold;
-        margin: 3px 10px;
+        margin: 14px 10px;
       }
       .free-paid-btn{
         color:  #5d05a6;
@@ -197,12 +304,16 @@ const Root = styled.div`
       .actions{
         display: flex;
         margin: auto;
+        border: 1px solid #d0d7de;
+        border-radius: 20px;
+        margin-top: 20px;
       }
       .edit{
         font-weight: bold;
         text-transform: none;
+        color: #FF7426;
         border-radius: 20px;
-        margin-top: 20px;
+        // margin-top: 10px;
         margin-left: 10px;
       }
       .delete{
@@ -210,7 +321,7 @@ const Root = styled.div`
         font-weight: bold;
         text-transform: none;
         border-radius: 20px;
-        margin-top: 20px;
+        // margin-top: 10px;
         margin-left: 10px;
       }
 `
