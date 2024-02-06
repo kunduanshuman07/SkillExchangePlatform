@@ -1,4 +1,4 @@
-import { Box, Button, Grid} from '@mui/material';
+import { Box, Button} from '@mui/material';
 import React, { useState } from 'react'
 import PrefDialog from '../components/PrefDialog';
 import styled from 'styled-components';
@@ -16,11 +16,7 @@ const LearnPage = () => {
         <Button className='filter' startIcon={<FilterAltIcon/>}>Filters</Button>
         <Button className='sort' startIcon={<SwapVertIcon/>}>Sort</Button>
       </Box>
-      <Grid container className='grid-container' spacing={5}>
-        <Grid item xs={4}>
-          <TutorComponent />
-        </Grid>
-      </Grid>
+      <TutorComponent/>
     </Root>
   )
 }
@@ -54,6 +50,7 @@ const Root = styled.div`
   .grid-container{
     padding-top: 15px;
   }
+  
 `
 
 export default LearnPage

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import TeachPageDrawer from '../components/TeachPageDrawer'
 import TeachHome from '../components/TeachHome'
 import TeachTutor from '../components/TeachTutor'
-import TeachTest from '../components/TeachTest'
+import TutorCourses from '../components/TutorCourses'
 
 const TeachPage = () => {
   const [drawerTabState, setDrawerTabState] = useState('Home')
@@ -12,7 +12,7 @@ const TeachPage = () => {
       <TeachPageDrawer drawerTabState={drawerTabState} setDrawerTabState={setDrawerTabState}/>
       {drawerTabState === 'Home' && <TeachHome />}
       {drawerTabState === 'Tutor' && <TeachTutor />}
-      {drawerTabState === 'Test' && <TeachTest />}
+      {drawerTabState === 'Courses' && <TutorCourses />}
     </Root>
   )
 }

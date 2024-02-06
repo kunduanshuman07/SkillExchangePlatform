@@ -1,9 +1,12 @@
 import { Avatar, Box, Button, MenuItem, TextField, Typography } from '@mui/material'
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import CodeEditor from "./CodeEditor";
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import ScreenShareIcon from '@mui/icons-material/ScreenShare';
+import { useNavigate } from 'react-router-dom';
+import LightModeIcon from '@mui/icons-material/LightMode';
+import ModeNightIcon from '@mui/icons-material/ModeNight';
 const languageOptions = [
     {
         label: "Javascript",
@@ -19,6 +22,11 @@ const languageOptions = [
     },
 ]
 const ColabEditor = () => {
+    const [theme, setTheme] = useState('vs-dark')
+    const navigate = useNavigate();
+    const handleLeaveRoom = () => {
+        navigate('/colab')
+    }
     return (
         <Root>
             <Box className='container'>
@@ -26,7 +34,22 @@ const ColabEditor = () => {
                     <Typography className='header'>Code Editor</Typography>
                     <Typography className='joined-users'>Language</Typography>
                     <Box className='language'>
-                        <TextField size='small' variant='standard' select fullWidth>
+                        <TextField size='small' variant='outlined' select fullWidth
+                            sx={{
+                                ".css-pqjvzy-MuiSvgIcon-root-MuiSelect-icon":{
+                                    color: "white"
+                                },
+                                ".css-pqjvzy-MuiSvgIcon-root-MuiSelect-icon::after":{
+                                    color: "white"
+                                },
+                                ".css-953pxc-MuiInputBase-root-MuiInput-root":{
+                                    color: "white"
+                                },
+                                ".css-jedpe8-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input ": {
+                                   background: "white"
+                                }
+                            }}
+                        >
                             {languageOptions.map((option) => (
                                 <MenuItem key={option.value} value={option.value}>{option.label}</MenuItem>
                             ))}
@@ -39,13 +62,18 @@ const ColabEditor = () => {
                             <Avatar className='avatar' variant='rounded'>MC</Avatar>
                         </Box>
                     </Box>
+                    <Box className='set-theme'>
+                        <Typography className='joined-users'>Editor Theme</Typography>
+                        <Button className='light' startIcon={<LightModeIcon />} onClick={()=>setTheme('light')} style={{color: theme==='light'?"yellow": "white"}}>Light</Button>
+                        <Button className='dark' startIcon={<ModeNightIcon />} onClick={()=>setTheme('vs-dark')} style={{color: theme==='vs-dark'?"#34eb6b": "white"}}>Dark</Button>
+                    </Box>
                     <Box className='footer'>
                         <Button className='invite' variant='contained' startIcon={<ScreenShareIcon />}>Invite</Button>
-                        <Button className='leave' variant='contained' startIcon={<ExitToAppIcon />}>Leave Room</Button>
+                        <Button className='leave' variant='contained' startIcon={<ExitToAppIcon />} onClick={handleLeaveRoom}>Leave Room</Button>
                     </Box>
                 </Box>
                 <Box className='right'>
-                    <CodeEditor />
+                    <CodeEditor theme={theme} />
                 </Box>
             </Box>
         </Root>
@@ -53,11 +81,24 @@ const ColabEditor = () => {
 }
 
 const Root = styled.div`
+.light{
+    text-transform: none;
+    font-weight: bold;
+    color: white;
+}
+.dark{
+    text-transform: none;
+    font-weight: bold;
+    color: white;
+}
+.set-theme{
+    margin-top: 30px;
+}
 .invite{
     text-transform: none;
     font-weight: bold;
     margin-top: 10px;
-    background-color: #34eb6b;
+    background-color: #20ebfa;
     padding: 5px 10px;
     color: black;
     &:hover{
@@ -68,7 +109,7 @@ const Root = styled.div`
     text-transform: none;
     margin-top: 10px;
     font-weight: bold;
-    background-color: #34eb6b;
+    background-color:#20ebfa;
     color: black;
     &:hover{
         color: white;
@@ -93,16 +134,16 @@ const Root = styled.div`
     height: 40px;
     background-color: #c42bb2;
     margin-top: 10px;
-    margin-left: 10px;
+    margin-left: 4px;
 }
 .language{
     margin-top: 20px;
-    background-color: white;
-    padding: 5px;
+    // background-color: white;
+    // padding: 5px;
     border-radius: 10px;
 }
 .header{
-    color: #34eb6b;
+    color: #20ebfa;
     font-weight: bold;
     font-size: 20px;
     border-bottom: 2px solid gray;

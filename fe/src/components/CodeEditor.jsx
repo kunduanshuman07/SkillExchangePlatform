@@ -1,13 +1,13 @@
 import Editor from "@monaco-editor/react";
 
-const CodeEditor = () => {
+const CodeEditor = ({theme}) => {
   const code = "console.log('Welcome to Swap Skill');";
   return (
     <Editor
       height="510px"
       width="100%"
       language="cpp"
-      theme="vs-dark"
+      theme={theme}
       value={code}
       options={{
         inlineSuggest: true,

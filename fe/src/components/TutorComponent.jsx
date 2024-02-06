@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Button, Card, Rating, Typography, CardContent, IconButton } from '@mui/material';
+import { Box, Button, Card, Rating, Typography, CardContent, IconButton, Grid } from '@mui/material';
 import PreviewIcon from '@mui/icons-material/Preview';
 import TeacherImg from "../assets/Teacher-one.jpg";
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
@@ -8,48 +8,53 @@ import SubscriptionsIcon from '@mui/icons-material/Subscriptions';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 const TutorComponent = () => {
-    const navigate = useNavigate();
-    const handleConnectTutor = () => {
-        const tutorId = 'xyz'
-        navigate(`/learn/${tutorId}`);
-    }
-    return (
-        <Root>
-            <Card className='grid-cards'>
-                <CardContent>
-                    <Box className='grid-items'>
-                        <img src={TeacherImg} alt='tutor' className='tutor-img' />
-                        <Box className='header'>
-                            <Typography className='tutor-name'>Matthew E. McNatt</Typography>
-                            <Typography className='tutor-prof'>Professor @George Brown College</Typography>
-                            <Box className='rating-header'>
-                                <Rating value={4} readOnly size='small' className='rating' />
-                                <Typography className='rating-stud'>4000+ Learners</Typography>
-                            </Box>
-                            <Button className='free-paid-btn'>Free</Button>
-                        </Box>
-                        <Box className='footer-one'>
-                            <Typography className='course-name'>React.js</Typography>
-                            <IconButton className='icon-btn'>
-                                <LinkedInIcon className='linkedin' />
-                            </IconButton>
-                        </Box>
-                        <Box className='footer-two'>
-                            <Button className='timer' startIcon={<AccessTimeIcon />}>22h 30min</Button>
-                            <Button className='subs' startIcon={<SubscriptionsIcon />}>150 Learners</Button>
-                        </Box>
-                        <Button className='connect' startIcon={<PreviewIcon />} onClick={handleConnectTutor}>View</Button>
-                    </Box>
-                </CardContent>
-            </Card>
-        </Root>
-    )
+  const navigate = useNavigate();
+  const handleConnectTutor = () => {
+    const tutorId = 'xyz'
+    navigate(`/learn/${tutorId}`);
+  }
+  return (
+    <Root>
+      <Grid container spacing={3}>
+        <Grid item xs={4}>
+          <Card className='grid-cards'>
+            <CardContent>
+              <Box className='grid-items'>
+                <img src={TeacherImg} alt='tutor' className='tutor-img' />
+                <Box className='header'>
+                  <Typography className='tutor-name'>Matthew E. McNatt</Typography>
+                  <Typography className='tutor-prof'>Professor @George Brown College</Typography>
+                  <Box className='rating-header'>
+                    <Rating value={4} readOnly size='small' className='rating' />
+                    <Typography className='rating-stud'>4000+ Learners</Typography>
+                  </Box>
+                  <Button className='free-paid-btn'>Free</Button>
+                </Box>
+                <Box className='footer-one'>
+                  <Typography className='course-name'>React.js</Typography>
+                  <IconButton className='icon-btn'>
+                    <LinkedInIcon className='linkedin' />
+                  </IconButton>
+                </Box>
+                <Box className='footer-two'>
+                  <Button className='timer' startIcon={<AccessTimeIcon />}>22h 30min</Button>
+                  <Button className='subs' startIcon={<SubscriptionsIcon />}>150 Learners</Button>
+                </Box>
+                <Button className='connect' startIcon={<PreviewIcon />} onClick={handleConnectTutor}>View</Button>
+              </Box>
+            </CardContent>
+          </Card>
+        </Grid>
+      </Grid>
+    </Root>
+  )
 }
 
 const Root = styled.div`
   .grid-cards{
     padding: 0px;
     border-radius: 15px;
+    margin-top: 10px;
   }
   .grid-items{
     display: flex;
